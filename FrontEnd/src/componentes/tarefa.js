@@ -2,7 +2,8 @@ import React from 'react'
 
 function Tarefa({tarefa, onDelete, onComplete}) {
     return(
-        <div className="card p-3 mb-2">
+        <div className="card p-3 mb-2"
+            style={{border: `10px solid ${tarefa.cor || "0#d6efd"}`}}>
             <div className="d-flex justify-content-between align-items-center">
                 <div>
                     <h5 style={{ textDecoration: tarefa.completa ? 'line-through' : 'none' }}>
@@ -21,5 +22,5 @@ function Tarefa({tarefa, onDelete, onComplete}) {
         </div>
     );
 }
-
+    
 export default Tarefa;

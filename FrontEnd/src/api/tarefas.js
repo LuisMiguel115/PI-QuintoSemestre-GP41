@@ -16,5 +16,6 @@ export const getTarefas = () => api.get('/tarefas');
 export const adicionarTarefa = (tarefa) => api.post('/tarefas', tarefa);
 export const atualizarTarefa = (id, dados) => api.put(`/tarefas/${id}`, dados);
 export const deletarTarefa = (id) => api.delete(`/tarefas/${id}`);
+export const completarTarefa = (id, completa) => api.put(`/tarefas/${id}`, { completa });
 
 export default api;
