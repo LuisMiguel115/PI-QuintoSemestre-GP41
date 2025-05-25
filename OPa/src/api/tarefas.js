@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-//backend
+//porta de destino para as requisições ao backend
 const api = axios.create({
   baseURL: 'https://localhost:7014/'
 });
