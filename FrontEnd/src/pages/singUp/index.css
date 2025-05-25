@@ -1,0 +1,137 @@
+/* Estilos Gerais */
+.page-login {
+  background: linear-gradient(135deg, #1a2a6c, #2a52be, #00b4db);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  padding: 20px;
+}
+
+/* Caixa de Login */
+.box-login {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Título */
+.bem-vindo h1 {
+  color: #1a2a6c;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+}
+
+.bem-vindo h1::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #1a2a6c;
+  margin: 10px auto 0;
+}
+
+/* Formulário */
+.form-row {
+  margin-bottom: 20px;
+}
+
+.form-row label {
+  display: block;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.form-row input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+
+.form-row input:focus {
+  border-color: #1a2a6c;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 42, 108, 0.1);
+}
+
+/* Botão */
+.btn-black {
+  background-color: #1a2a6c;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+.btn-black:hover {
+  background-color: #0f1a4d;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(26, 42, 108, 0.3);
+}
+
+.btn-black:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Mensagem de erro */
+.invalido {
+  color: #e74c3c;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #fde8e8;
+  border-radius: 4px;
+  animation: shake 0.5s;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+/* Placeholders estilizados */
+::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+a{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+p{
+      margin-top: 1rem;
+}

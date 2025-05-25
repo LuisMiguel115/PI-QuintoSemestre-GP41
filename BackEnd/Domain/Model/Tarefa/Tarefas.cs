@@ -29,5 +29,9 @@ namespace ServerPI.Domain.Model.Tarefa
         [Column("DataInclusao")]
         public DateTime DataInclusao { get; private set; }
 
+        public void UpdateCompletedStatus(bool completed)
+        {
+            Completed = completed;
+        }
     }
 }

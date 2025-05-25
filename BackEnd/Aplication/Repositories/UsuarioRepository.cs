@@ -24,6 +24,11 @@ namespace ServerPI.Aplication.Repositories
             return _connect.Usuarios.Find(id);
         }
 
+        public Usuario GetUsuaioByEmail(string email)
+        {
+            return _connect.Usuarios.FirstOrDefault(u => u.Email == email);
+        }
+
         public Usuario GetUsuarioByEmailAndSenha(string email, string senha)
         {
             return _connect.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ServerPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5c9fac38600dbf70df3b0e9ff4751cf38d1ceed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da067a7a07b60e0841d12a401887e461ff3837ca")]
 [assembly: System.Reflection.AssemblyProductAttribute("ServerPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ServerPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

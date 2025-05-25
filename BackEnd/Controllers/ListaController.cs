@@ -23,8 +23,8 @@ namespace ServerPI.Controllers
 
 
         //criar lista
-        [HttpPost]
-        public IActionResult Add([FromForm] ListaViewModel listaViewModel)
+        [HttpPost("/criarLista")]
+        public IActionResult Add([FromBody] ListaViewModel listaViewModel)
         {
             try
             {
@@ -59,13 +59,12 @@ namespace ServerPI.Controllers
 
         }
 
-        [HttpDelete]
-        public IActionResult deleteLista([FromForm] ListaIDViewModel listaIDViewModel  )
+        [HttpDelete("/deleteLista/{idLista}")]  
+        public IActionResult DeleteLista(int idLista)  
         {
-            _tarefa.RemoveTarefasLista(listaIDViewModel.IdLista);     
-            _lista.Remove(listaIDViewModel.IdLista);
+            _tarefa.RemoveTarefasLista(idLista);
+            _lista.Remove(idLista);
             return Ok();
-
         }
     }
 }

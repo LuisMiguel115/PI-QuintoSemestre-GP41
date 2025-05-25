@@ -20,8 +20,8 @@ namespace ServerPI.Controllers
         }
 
         //criar lista
-        [HttpPost]
-        public IActionResult Add([FromForm] TarefaViewModel tarefaViewModel)
+        [HttpPost("/criarTarefa")]
+        public IActionResult Add([FromBody] TarefaViewModel tarefaViewModel)
         {
             try
             {
@@ -49,20 +49,55 @@ namespace ServerPI.Controllers
             return Ok(tarefas);
         }
         // Buscar tarefas de uma lista
-        [HttpPost ("TarefaLista")]
-        public IActionResult GetTarefaLista([FromForm] TarefaFKListasViewModel tarefaFKListasViewModel)
+        [HttpPost ("/tarefaLista")]
+        public IActionResult GetTarefaLista([FromBody] TarefaFKListasViewModel tarefaFKListasViewModel)
         {
             var tarefasLista = _tarefa.GetTarefaLista(tarefaFKListasViewModel.FK_IdLista);
             return Ok(tarefasLista);
 
-        }
+         }
         // delete tarefas de uma lista
-        [HttpDelete]
-        public IActionResult deleteTarefaLista([FromForm] TarefaIDViewModel tarefaIDViewModel)
+        [HttpDelete("/DeleteTask/{IdTarefa}")]
+        public IActionResult deleteTarefaLista(int IdTarefa)
         {
-            _tarefa.Remove(tarefaIDViewModel.IdTarefa);
+            _tarefa.Remove(IdTarefa);
             return Ok();
 
+        }
+
+
+        [HttpPut("/Completed/{IdTarefa}")]
+        public IActionResult UpdateCompleted(int IdTarefa, [FromBody] TarefaViewModelCompleted model)
+        {
+            try
+            {
+                var tarefaExistente = _tarefa.Getbyid(IdTarefa);
+
+                if (tarefaExistente == null)
+                {
+                    return NotFound("Tarefa não encontrada");
+                }
+
+                tarefaExistente.UpdateCompletedStatus(model.Completed);
+
+                _tarefa.Update(tarefaExistente);
+
+                return Ok(new
+                {
+                    IdTarefa = tarefaExistente.IdTarefa,
+                    DescricaoTarefa = tarefaExistente.DescricaoTarefa,
+                    Completed = tarefaExistente.Completed,
+                    DataInclusao = tarefaExistente.DataInclusao
+                });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new
+                {
+                    Error = e.Message,
+                    StackTrace = e.StackTrace
+                });
+            }
         }
     }
 }

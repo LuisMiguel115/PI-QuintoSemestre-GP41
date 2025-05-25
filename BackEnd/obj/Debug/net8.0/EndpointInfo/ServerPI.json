@@ -5,40 +5,26 @@
     "version": "1.0"
   },
   "paths": {
-    "/Lista": {
+    "/criarLista": {
       "post": {
         "tags": [
           "Lista"
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "NomeLista": {
-                    "type": "string"
-                  },
-                  "DataInclusao": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "FK_UsuarioCriador": {
-                    "type": "integer",
-                    "format": "int32"
-                  }
-                }
-              },
-              "encoding": {
-                "NomeLista": {
-                  "style": "form"
-                },
-                "DataInclusao": {
-                  "style": "form"
-                },
-                "FK_UsuarioCriador": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/ListaViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListaViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListaViewModel"
               }
             }
           }
@@ -48,7 +34,9 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/Lista": {
       "get": {
         "tags": [
           "Lista"
@@ -58,27 +46,51 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/deleteLista/{idLista}": {
       "delete": {
         "tags": [
           "Lista"
         ],
+        "parameters": [
+          {
+            "name": "idLista",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/criarTarefa": {
+      "post": {
+        "tags": [
+          "Tarefa"
+        ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "IdLista": {
-                    "type": "integer",
-                    "format": "int32"
-                  }
-                }
-              },
-              "encoding": {
-                "IdLista": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/TarefaViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TarefaViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TarefaViewModel"
               }
             }
           }
@@ -91,55 +103,6 @@
       }
     },
     "/Tarefa": {
-      "post": {
-        "tags": [
-          "Tarefa"
-        ],
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "FK_IdLista": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "DescricaoTarefa": {
-                    "type": "string"
-                  },
-                  "Completed": {
-                    "type": "boolean"
-                  },
-                  "DataInclusao": {
-                    "type": "string",
-                    "format": "date-time"
-                  }
-                }
-              },
-              "encoding": {
-                "FK_IdLista": {
-                  "style": "form"
-                },
-                "DescricaoTarefa": {
-                  "style": "form"
-                },
-                "Completed": {
-                  "style": "form"
-                },
-                "DataInclusao": {
-                  "style": "form"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
       "get": {
         "tags": [
           "Tarefa"
@@ -149,27 +112,28 @@
             "description": "OK"
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/tarefaLista": {
+      "post": {
         "tags": [
           "Tarefa"
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "IdTarefa": {
-                    "type": "integer",
-                    "format": "int32"
-                  }
-                }
-              },
-              "encoding": {
-                "IdTarefa": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/TarefaFKListasViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TarefaFKListasViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TarefaFKListasViewModel"
               }
             }
           }
@@ -181,27 +145,91 @@
         }
       }
     },
-    "/Tarefa/TarefaLista": {
-      "post": {
+    "/DeleteTask/{IdTarefa}": {
+      "delete": {
         "tags": [
           "Tarefa"
         ],
+        "parameters": [
+          {
+            "name": "IdTarefa",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Completed/{IdTarefa}": {
+      "put": {
+        "tags": [
+          "Tarefa"
+        ],
+        "parameters": [
+          {
+            "name": "IdTarefa",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "FK_IdLista": {
-                    "type": "integer",
-                    "format": "int32"
-                  }
-                }
-              },
-              "encoding": {
-                "FK_IdLista": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/TarefaViewModelCompleted"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TarefaViewModelCompleted"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TarefaViewModelCompleted"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/cadastrarUsuario": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioViewModel"
               }
             }
           }
@@ -214,47 +242,6 @@
       }
     },
     "/usuario": {
-      "post": {
-        "tags": [
-          "Usuario"
-        ],
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "Nome": {
-                    "type": "string"
-                  },
-                  "Email": {
-                    "type": "string"
-                  },
-                  "Senha": {
-                    "type": "string"
-                  }
-                }
-              },
-              "encoding": {
-                "Nome": {
-                  "style": "form"
-                },
-                "Email": {
-                  "style": "form"
-                },
-                "Senha": {
-                  "style": "form"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
       "get": {
         "tags": [
           "Usuario"
@@ -266,32 +253,26 @@
         }
       }
     },
-    "/Getlogin": {
+    "/getLogin": {
       "post": {
         "tags": [
           "Usuario"
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "Email": {
-                    "type": "string"
-                  },
-                  "Senha": {
-                    "type": "string"
-                  }
-                }
-              },
-              "encoding": {
-                "Email": {
-                  "style": "form"
-                },
-                "Senha": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/UsuarioLoginViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioLoginViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioLoginViewModel"
               }
             }
           }
@@ -304,5 +285,98 @@
       }
     }
   },
-  "components": { }
+  "components": {
+    "schemas": {
+      "ListaViewModel": {
+        "type": "object",
+        "properties": {
+          "nomeLista": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataInclusao": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fK_UsuarioCriador": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TarefaFKListasViewModel": {
+        "type": "object",
+        "properties": {
+          "fK_IdLista": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TarefaViewModel": {
+        "type": "object",
+        "properties": {
+          "fK_IdLista": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descricaoTarefa": {
+            "type": "string",
+            "nullable": true
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "dataInclusao": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TarefaViewModelCompleted": {
+        "type": "object",
+        "properties": {
+          "completed": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioLoginViewModel": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "senha": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioViewModel": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "senha": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
 }

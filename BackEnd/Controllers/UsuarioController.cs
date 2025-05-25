@@ -1,6 +1,7 @@
 ﻿using ServerPI.Domain.Model.Usuario;
 using Microsoft.AspNetCore.Mvc;
 using ServerPI.Aplication.ViewModels.Usuario;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CatalogoFilmesApi.Controllers
 {
@@ -17,21 +18,30 @@ namespace CatalogoFilmesApi.Controllers
         }
 
         //criar usuario
-        [HttpPost]
-        public IActionResult Add([FromForm] UsuarioViewModel usuarioViewModel)
+        [HttpPost("/cadastrarUsuario")]
+        public IActionResult Add([FromBody] UsuarioViewModel usuarioViewModel)
         {
 
-            var usuarioLogin = _usuario.GetUsuarioByEmailAndSenha(usuarioViewModel.Email, usuarioViewModel.Senha);
+            var usuarioLogin = _usuario.GetUsuaioByEmail(usuarioViewModel.Email);
 
             if (usuarioLogin == null)
             {
                 var usuario = new Usuario(usuarioViewModel.Nome, usuarioViewModel.Email, usuarioViewModel.Senha);
                 _usuario.Add(usuario);
-                return Ok(usuario);
+                return Ok(new
+                {
+                    success = true,
+                    message = "Usuario Cadastrado",
+                    usuario
+                });
             }
             else 
             {
-                return BadRequest("Usario já existe!");
+                return BadRequest(new
+                {
+                    success = false,
+                    message = "E-mail Já cadastrado, por favor tente novamente com outro e-mail"
+                });
             }
            
 
@@ -49,8 +59,8 @@ namespace CatalogoFilmesApi.Controllers
 
         // Buscar usuarios login
         [HttpPost]
-        [Route("/Getlogin")]
-        public IActionResult Getlogin([FromForm]UsuarioLoginViewModel usuarioLoginViewModel)
+        [Route("/getLogin")]
+        public IActionResult Getlogin([FromBody] UsuarioLoginViewModel usuarioLoginViewModel)
         {
             var usuarioLogin = _usuario.GetUsuarioByEmailAndSenha(usuarioLoginViewModel.Email, usuarioLoginViewModel.Senha);
 
@@ -60,11 +70,11 @@ namespace CatalogoFilmesApi.Controllers
                 return Ok(usuario);
 
             }
-            else
+           return BadRequest(new
             {
-                return BadRequest("Usario ou senha incorreto!");
-            
-            }
+                success = false,
+                message = "Email ou senha incorretos"
+            });
         }
 
     }

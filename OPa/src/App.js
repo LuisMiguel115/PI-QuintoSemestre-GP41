@@ -3,7 +3,7 @@ import { getTarefas, adicionarTarefa, deletarTarefa, atualizarTarefa, completarT
 import Tarefa from './componentes/tarefa';
 import './App.css';
 
-function App() {
+function index() {
   const [tarefa, setTarefas] = useState([]);
   const [novaTarefa, setNovaTarefa] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -165,4 +165,4 @@ function App() {
   );
 }
 
-export default App;
+export default index;

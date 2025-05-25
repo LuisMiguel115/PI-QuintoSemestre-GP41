@@ -11,5 +11,7 @@
         //Logar Usuario
         Usuario GetUsuarioByEmailAndSenha(string email, string senha);
 
+        Usuario GetUsuaioByEmail(string email);
+
     }
 }

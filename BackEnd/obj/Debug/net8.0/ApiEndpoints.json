@@ -1,21 +1,37 @@
 [
   {
     "ContainingType": "CatalogoFilmesApi.Controllers.UsuarioController",
-    "Method": "Getlogin",
-    "RelativePath": "Getlogin",
+    "Method": "Add",
+    "RelativePath": "cadastrarUsuario",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Email",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "usuarioViewModel",
+        "Type": "ServerPI.Aplication.ViewModels.Usuario.UsuarioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerPI.Controllers.TarefaController",
+    "Method": "UpdateCompleted",
+    "RelativePath": "Completed/{IdTarefa}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdTarefa",
+        "Type": "System.Int32",
+        "IsRequired": true
       },
       {
-        "Name": "Senha",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "model",
+        "Type": "ServerPI.Aplication.ViewModels.Lista.TarefaViewModelCompleted",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -23,100 +39,55 @@
   {
     "ContainingType": "ServerPI.Controllers.ListaController",
     "Method": "Add",
-    "RelativePath": "Lista",
+    "RelativePath": "criarLista",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "NomeLista",
-        "Type": "System.String",
-        "IsRequired": false
-      },
+        "Name": "listaViewModel",
+        "Type": "ServerPI.Aplication.ViewModels.Lista.ListaViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerPI.Controllers.TarefaController",
+    "Method": "Add",
+    "RelativePath": "criarTarefa",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Name": "DataInclusao",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "FK_UsuarioCriador",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "Name": "tarefaViewModel",
+        "Type": "ServerPI.Aplication.ViewModels.Lista.TarefaViewModel",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "ServerPI.Controllers.ListaController",
-    "Method": "Get",
-    "RelativePath": "Lista",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ServerPI.Controllers.ListaController",
-    "Method": "deleteLista",
-    "RelativePath": "Lista",
+    "Method": "DeleteLista",
+    "RelativePath": "deleteLista/{idLista}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "IdLista",
+        "Name": "idLista",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ServerPI.Controllers.TarefaController",
-    "Method": "Add",
-    "RelativePath": "Tarefa",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "FK_IdLista",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "DescricaoTarefa",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Completed",
-        "Type": "System.Boolean",
-        "IsRequired": false
-      },
-      {
-        "Name": "DataInclusao",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ServerPI.Controllers.TarefaController",
-    "Method": "Get",
-    "RelativePath": "Tarefa",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {
     "ContainingType": "ServerPI.Controllers.TarefaController",
     "Method": "deleteTarefaLista",
-    "RelativePath": "Tarefa",
+    "RelativePath": "DeleteTask/{IdTarefa}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -124,49 +95,59 @@
       {
         "Name": "IdTarefa",
         "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ServerPI.Controllers.TarefaController",
-    "Method": "GetTarefaLista",
-    "RelativePath": "Tarefa/TarefaLista",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "FK_IdLista",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "CatalogoFilmesApi.Controllers.UsuarioController",
-    "Method": "Add",
-    "RelativePath": "usuario",
+    "Method": "Getlogin",
+    "RelativePath": "getLogin",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Nome",
-        "Type": "System.String",
-        "IsRequired": false
-      },
+        "Name": "usuarioLoginViewModel",
+        "Type": "ServerPI.Aplication.ViewModels.Usuario.UsuarioLoginViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerPI.Controllers.ListaController",
+    "Method": "Get",
+    "RelativePath": "Lista",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerPI.Controllers.TarefaController",
+    "Method": "Get",
+    "RelativePath": "Tarefa",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerPI.Controllers.TarefaController",
+    "Method": "GetTarefaLista",
+    "RelativePath": "tarefaLista",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Name": "Email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Senha",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "tarefaFKListasViewModel",
+        "Type": "ServerPI.Aplication.ViewModels.Tarefa.TarefaFKListasViewModel",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

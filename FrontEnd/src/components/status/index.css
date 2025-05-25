@@ -1,0 +1,28 @@
+.dashboard-container-status {
+  background-color: #111; /* cor escura */
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 30px;
+  border-radius: 12px;
+  width:80%;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
