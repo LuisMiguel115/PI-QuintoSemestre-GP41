@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+.sidebar-nav-link {
+  transition: background-color 0.3s ease, color 0.3s ease, border-left 0.3s ease;
+  border-left: 4px solid transparent; /* Borda transparente por padrão */
+}
+
+.sidebar-nav-link.active {
+  background-color: #0d6efd; /* Cor primária do Bootstrap */
+  color: #fff;
+  border-left: 4px solid #0dcaf0; /* Uma cor de destaque para a borda */
+}
+
+.sidebar-nav-link:not(.active) {
+  color: #a0a0a0; /* Cinza mais claro para texto inativo */
+}
+
+.sidebar-nav-link:not(.active):hover {
+  background-color: #343a40; /* Cor de fundo escura para hover */
+  color: #fff;
+}
+
+/* Garante que o container principal ocupe toda a altura da viewport */
+html, body, #root, .min-vh-100 {
+  height: 100%;
+}
+
+/* Estilo para o background do conteúdo principal */
+.bg-secondary {
+  background-color: #212529 !important; /* Um cinza mais escuro que o bg-dark para contraste */
+}
+
+/* Removendo a borda padrão dos botões btn-link para a sidebar */
+.sidebar-nav-link.btn-link {
+  border-color: transparent;
+}
