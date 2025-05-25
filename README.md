@@ -52,7 +52,7 @@ Interface do usuário (SPA - Single Page Application) que consome a API do backe
 
 1.  **Inicie os Serviços:**
     * Execute o Backend...
-    * Execute o Frontend. (na pasta App.js abra um terminal e digite "npm start")
+    * Execute o Frontend. (na pasta onde se encontra o arquivo "App.js" abra um terminal e digite "npm start")
     * Certifique-se que o Banco de Dados (`TaskDB`) está acessível e configurado.
 2.  **Acesse e Faça Login:**
     * Abra `http://localhost:3000/` no navegador.
