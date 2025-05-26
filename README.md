@@ -15,13 +15,38 @@
 ---
 
 ## Backend (ServerPI)
-Para o backend foi utilizado a linguagem c# e com ORM foi utilizado o entintyFramework, seguindo o padrao de projeto de model, viewModel, Controller, Repository e Domain
 
+O backend da aplicação foi desenvolvido em **C# com ASP.NET Core**, utilizando o **Entity Framework Core** como ORM para facilitar o mapeamento objeto-relacional.
+
+**Principais características:**
+
+- Arquitetura em camadas, com separação de responsabilidades:
+  - **Model**: Representações das entidades do domínio.
+  - **ViewModel**: Objetos para troca de dados com o frontend (DTOs).
+  - **Controller**: Gerencia as requisições HTTP e a lógica de controle.
+  - **Repository**: Abstração do acesso a dados.
+  - **Domain**: Regras de negócio e interfaces de contratos.
+
+- API RESTful organizada por recursos (usuários, listas, tarefas).
+- Validação de dados e tratamento de erros.
+- Suporte a CORS para integração com o frontend.
 ---
 
 ## Banco de Dados (TaskDB)
 
-Utiliado Sqlserver com o schema anexado ao projeto
+A aplicação utiliza **SQL Server** como sistema gerenciador de banco de dados relacional.
+
+**Informações técnicas:**
+
+- O script de criação do banco está disponível em: `Database/DML.sql`
+- Estrutura relacional composta por:
+  - `Users` (usuários)
+  - `TaskLists` (listas de tarefas)
+  - `Tasks` (tarefas)
+
+- Chaves estrangeiras definem os relacionamentos entre as tabelas.
+- Integridade referencial garantida por constraints.
+- A string de conexão deve ser ajustada em: `BackEnd/appsettings.json`
 
 ---
 
@@ -55,13 +80,13 @@ Interface do usuário (SPA - Single Page Application) que consome a API do backe
       
 1.  **Inicie os Serviços:**
     * Ajuste a string de conexão de banco de dados (BackEnd/appsettings.json)
-      ![image](https://github.com/user-attachments/assets/c2502b94-2ea9-4acf-8c16-3cc58508797b)
+    ![image](https://github.com/user-attachments/assets/c2502b94-2ea9-4acf-8c16-3cc58508797b)
     * Execute o .bat. (Start_Project_Complet.bat)
     * aguarde a execução dos comando de incialização
       
 3.  **Acesse e Faça Login:**
     * Abra o link informado no cmd no navegador.
-    * ![image](https://github.com/user-attachments/assets/58e8cce2-cb41-4197-930d-412d4be0442c)
+     ![image](https://github.com/user-attachments/assets/58e8cce2-cb41-4197-930d-412d4be0442c)
     * Registre-se ou faça login caso já tenha conta
 4.  **Gerencie Listas no Dashboard:**
     * Crie novas listas clicando em "nova lista".
