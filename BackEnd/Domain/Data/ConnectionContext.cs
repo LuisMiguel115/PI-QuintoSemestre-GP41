@@ -4,6 +4,7 @@ using ServerPI.Domain.Model.Lista;
 using ServerPI.Domain.Model.Tarefa;
 using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 
 namespace ServerPI.Domain.Data
 {
@@ -14,8 +15,17 @@ namespace ServerPI.Domain.Data
         public DbSet<Lista> Listas => Set<Lista>();
         public DbSet<Tarefas> Tarefas => Set<Tarefas>();
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => 
-            optionsBuilder.
-                UseSqlServer("Server=DESKTOP-ASNSL0J;Database=TaskDB;Integrated Security=SSPI;Trusted_Connection=True;TrustServerCertificate=True;");
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                IConfigurationRoot configuration = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json")
+                    .Build();
+
+                optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            }
+        }
     }
 }
