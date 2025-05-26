@@ -28,7 +28,6 @@ yarn-error.log*
 .vs
 BackEnd/obj/Debug/net8.0/ServerPI.AssemblyInfo.cs
 BackEnd/obj/Debug/net8.0/ServerPI.AssemblyInfoInputs.cache
-*.cs
 
 # Logs
 logs
