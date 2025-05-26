@@ -80,10 +80,10 @@ Interface do usuário (SPA - Single Page Application) que consome a API do backe
     * certifique-se que o sqlServer está configurado corretamente
     * Execute o schema do banco de dados encontrado em (Database/DML.sql)
 
-1. **Inicie os Serviços:**
+2. **Inicie os Serviços:**
     * Ajuste a string de conexão de banco de dados (BackEnd/appsettings.json)
     ![image](https://github.com/user-attachments/assets/c2502b94-2ea9-4acf-8c16-3cc58508797b)
-    * Execute o .bat. (Start_Project_Complet.bat)
+    * Execute o .bat. => "Start_Project_Complet.bat" (BETA: para LinuxOS use o arquivo ".sh")
     * aguarde a execução dos comando de incialização
 
 3. **Acesse e Faça Login:**
@@ -101,4 +101,4 @@ Interface do usuário (SPA - Single Page Application) que consome a API do backe
 
 ## Landing Page
 
-**A Landing Page do projeto se encontra em uma branch secundaria propria para ela.**
+**A Landing Page do projeto se encontra em uma branch secundária própria para ela.**
