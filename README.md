@@ -15,13 +15,13 @@
 ---
 
 ## Backend (ServerPI)
-
+Para o backend foi utilizado a linguagem c# e com ORM foi utilizado o entintyFramework, seguindo o padrao de projeto de model, viewModel, Controller, Repository e Domain
 
 ---
 
 ## Banco de Dados (TaskDB)
 
-
+Utiliado Sqlserver com o schema anexado ao projeto
 
 ---
 
@@ -43,25 +43,31 @@ Interface do usuário (SPA - Single Page Application) que consome a API do backe
     1.  **Pré-requisitos:** Node.js (16+), npm ou yarn.
     2.  **Instalar Dependências:** No diretório `Frontend/`, rode `npm install` (ou `yarn install`).
     3.  **Executar:** No diretório `Frontend/`, rode `npm start`.
-    4.  **Acesso Aplicação:** http://localhost:3000/
-    5.  **Conexão API:** Configurada em `Frontend/src/api/axios.js` para `https://localhost:7014/`.
+    4.  **Conexão API:** Configurada em `Frontend/src/api/axios.js` para `https://localhost:7014/`.
 
 ---
 
 ## Como usar
 
+1.  **Crie o banco de dados:**
+    * certifique-se que o sqlServer está configurado corretamente
+    * Execute o schema do banco de dados encontrado em (Database/DML.sql)
+      
 1.  **Inicie os Serviços:**
-    * Execute o Backend...
-    * Execute o Frontend. (na pasta onde se encontra o arquivo "App.js" abra um terminal e digite "npm start")
-    * Certifique-se que o Banco de Dados (`TaskDB`) está acessível e configurado.
-2.  **Acesse e Faça Login:**
-    * Abra `http://localhost:3000/` no navegador.
-    * Use as credenciais: .....
-3.  **Gerencie Listas no Dashboard:**
+    * Ajuste a string de conexão de banco de dados (BackEnd/appsettings.json)
+      ![image](https://github.com/user-attachments/assets/c2502b94-2ea9-4acf-8c16-3cc58508797b)
+    * Execute o .bat. (Start_Project_Complet.bat)
+    * aguarde a execução dos comando de incialização
+      
+3.  **Acesse e Faça Login:**
+    * Abra o link informado no cmd no navegador.
+    * ![image](https://github.com/user-attachments/assets/58e8cce2-cb41-4197-930d-412d4be0442c)
+    * Registre-se ou faça login caso já tenha conta
+4.  **Gerencie Listas no Dashboard:**
     * Crie novas listas clicando em "nova lista".
     * Visualize e exclua listas existentes.
-4.  **Gerencie Tarefas:**
+5.  **Gerencie Tarefas:**
     * Clique no nome de uma lista para ver suas tarefas.
     * Adicione, marque como concluída ou exclua tarefas.
-5.  **Sair:**
+6.  **Sair:**
     * Use a opção "Sair" no menu para encerrar a sessão.
