@@ -50,6 +50,17 @@ A aplicação utiliza **SQL Server** como sistema gerenciador de banco de dados 
 * Integridade referencial garantida por constraints.
 * A string de conexão deve ser ajustada em: `BackEnd/appsettings.json`
 
++----------------+         +-------------------+         +------------------+
+|    Usuario     |         |   ListaTarefa     |         |     Tarefas      |
++----------------+         +-------------------+         +------------------+
+| IdUsuario (PK) |◄────────┤ FK_UsuarioCriador |         |  IdTarefa (PK)   |
+| NomeUsuario    |         | IdLista (PK)      |◄────────┤ FK_IdLista       |
+| EmailUsuario   |         | NameLista         |         | DescricaoTarefa  |
+| SenhaUsuario   |         | DataInclusao      |         | Completed        |
++----------------+         +-------------------+         | DataInclusao     |
+                                                        +------------------+
+
+
 ---
 
 ## Frontend
