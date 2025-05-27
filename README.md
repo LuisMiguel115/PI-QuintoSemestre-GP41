@@ -49,7 +49,8 @@ A aplicação utiliza **SQL Server** como sistema gerenciador de banco de dados 
 * Chaves estrangeiras definem os relacionamentos entre as tabelas.
 * Integridade referencial garantida por constraints.
 * A string de conexão deve ser ajustada em: `BackEnd/appsettings.json`
-
+  
+`
 +----------------+         +-------------------+         +------------------+
 |    Usuario     |         |   ListaTarefa     |         |     Tarefas      |
 +----------------+         +-------------------+         +------------------+
@@ -59,7 +60,7 @@ A aplicação utiliza **SQL Server** como sistema gerenciador de banco de dados 
 | SenhaUsuario   |         | DataInclusao      |         | Completed        |
 +----------------+         +-------------------+         | DataInclusao     |
                                                         +------------------+
-
+`
 
 ---
 
