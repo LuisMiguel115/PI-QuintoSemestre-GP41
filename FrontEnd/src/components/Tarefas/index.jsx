@@ -83,13 +83,13 @@ export default function Index() {
                     onClick={() => CompleteTask(tarefa.idTarefa, true)}
                     className="btn btn-success delete-btn"
                   >
-                    concluir
+                    ✔️
                   </button>
                   <button
                     onClick={() => Deletetarefa(tarefa.idTarefa)}
                     className="btn btn-danger delete-btn"
                   >
-                    Excluir
+                    ❌
                   </button>
                 </div>
               </li>
@@ -112,16 +112,10 @@ export default function Index() {
                 {tarefa.descricaoTarefa}
                 <div>
                   <button
-                    onClick={() => CompleteTask(tarefa.idTarefa, true)}
-                    className="btn btn-success delete-btn"
-                  >
-                    concluir
-                  </button>
-                  <button
-                    onClick={() => Deletetarefa(tarefa.idTarefa)}
+                    onClick={() => CompleteTask(tarefa.idTarefa, false)}
                     className="btn btn-danger delete-btn"
                   >
-                    Excluir
+                    ❌
                   </button>
                 </div>
               </li>

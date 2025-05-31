@@ -28,29 +28,42 @@ export default function Index(props) {
 
     }
     return (
-            <nav className="comp-menu">
+        <nav className="comp-menu">
 
+            <div>
+                <div className='logo'>
+                    <img src="/src/assets/images/Logo.png" alt="logo" />
+                </div>
                 <div>
-                    <div className='logo'>
-                        <img src="/src/assets/images/Logo.png" alt="logo" />
-                    </div>
-
                     <div className='menu-items'>
                         <Link to='/dashboard' className={VerificarSelect("dashboard")}>
                             <img src="/src/assets/images/icon-home.svg" alt="home" />
                             <div>Dashboard</div>
                         </Link>
-
+                    </div>
+                    <div className='menu-items'>
+                        <Link to='/dashboard' data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <img src="/src/assets/images/icon-cadastrar.svg" alt="home" />
+                            <div>Cria Lista</div>
+                        </Link>
+                    </div>
+                    <div className='menu-items'>
+                        <Link to='/minhasListas'>
+                            <img src="/src/assets/images/icon-consultar.svg" alt="home" />
+                            <div>Minhas Listas</div>
+                        </Link>
                     </div>
                 </div>
 
-                <div className='menu-items'>
-                    <a onClick={sairClick} href="#">
-                        <img src="/src/assets/images/icon-sair.svg" alt="consultar" />
-                        <div>Sair</div>
-                    </a>
-                </div>
-            </nav>
+            </div>
+
+            <div className='menu-items'>
+                <a onClick={sairClick} href="#">
+                    <img src="/src/assets/images/icon-sair.svg" alt="consultar" />
+                    <div>Sair</div>
+                </a>
+            </div>
+        </nav>
 
     )
 }
